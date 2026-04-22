@@ -77,7 +77,7 @@
             transition: box-shadow 0.3s ease;
         }
         .nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-        .nav-brand { font-family: var(--font-heading); font-weight: 800; font-size: 1.2rem; color: var(--primary); }
+        .nav-brand { font-family: var(--font-heading); font-weight: 800; font-size: 1.6rem; color: var(--primary); }
         .nav-brand span { color: var(--accent); }
         .nav-links { display: flex; gap: 28px; align-items: center; }
         .nav-links a { font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600; color: var(--text-muted); transition: color 0.2s; }
@@ -100,7 +100,7 @@
         .hero {
             min-height: 100vh; display: flex; align-items: center;
             padding: 100px 5% 60px;
-            background: linear-gradient(135deg, rgba(12,74,110,0.88) 0%, rgba(3,105,161,0.85) 50%, rgba(8,145,178,0.82) 100%), url('assets/hero-salon.jpg') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(12,74,110,0.7) 0%, rgba(3,105,161,0.65) 50%, rgba(8,145,178,0.6) 100%), url('assets/hero-salon.jpg') center/cover no-repeat;
             position: relative; overflow: hidden;
         }
         .hero::before {
@@ -440,11 +440,34 @@
                 </div>
             </div>
             <div class="reveal">
-                <div class="zone-map">
-                    <div class="zone-map-icon">📍</div>
-                    <h3>Bouloc — 31620</h3>
-                    <p>Siège de l'entreprise. Intervention rapide dans un rayon de 100 km.</p>
-                    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: center; gap: 32px;">
+                <div class="zone-map" style="padding: 32px 28px;">
+                    <!-- Carte Occitanie simplifiée -->
+                    <svg viewBox="0 0 400 320" fill="none" style="width: 100%; max-width: 360px; margin: 0 auto 16px; display: block; position: relative; z-index: 2;">
+                        <!-- Contour Occitanie simplifié -->
+                        <path d="M60,40 L110,20 L180,15 L240,25 L300,10 L340,30 L370,70 L380,120 L370,170 L350,200 L370,240 L350,270 L310,290 L260,300 L200,310 L150,300 L100,280 L60,250 L30,210 L20,160 L25,120 L40,80 Z"
+                              fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linejoin="round"/>
+                        <!-- Zone d'intervention (arc Toulouse-Carcassonne) -->
+                        <ellipse cx="210" cy="200" rx="100" ry="70" fill="rgba(6,182,212,0.15)" stroke="rgba(6,182,212,0.4)" stroke-width="1" stroke-dasharray="6 4"/>
+                        <!-- Point Bouloc -->
+                        <circle cx="210" cy="175" r="8" fill="var(--accent)" opacity="0.9"/>
+                        <circle cx="210" cy="175" r="14" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.4">
+                            <animate attributeName="r" from="14" to="24" dur="2s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <text x="210" y="163" text-anchor="middle" fill="#FFF" font-family="var(--font-heading)" font-size="11" font-weight="700">BOULOC</text>
+                        <!-- Toulouse -->
+                        <circle cx="195" cy="210" r="4" fill="rgba(255,255,255,0.5)"/>
+                        <text x="195" y="228" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="var(--font-heading)" font-weight="600">Toulouse</text>
+                        <!-- Carcassonne -->
+                        <circle cx="280" cy="235" r="4" fill="rgba(255,255,255,0.5)"/>
+                        <text x="280" y="253" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="9" font-family="var(--font-heading)" font-weight="600">Carcassonne</text>
+                        <!-- Montauban -->
+                        <circle cx="180" cy="155" r="3" fill="rgba(255,255,255,0.35)"/>
+                        <text x="180" y="148" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="8" font-family="var(--font-heading)" font-weight="600">Montauban</text>
+                        <!-- Légende -->
+                        <text x="200" y="30" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="11" font-family="var(--font-heading)" font-weight="700" letter-spacing="3">OCCITANIE</text>
+                    </svg>
+                    <div style="position: relative; z-index: 2; display: flex; justify-content: center; gap: 32px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.12);">
                         <div><div style="font-weight: 800; font-size: 1.3rem;">100km</div><div style="font-size: 0.8rem; opacity: 0.7;">rayon</div></div>
                         <div><div style="font-weight: 800; font-size: 1.3rem;">30+</div><div style="font-size: 0.8rem; opacity: 0.7;">communes</div></div>
                     </div>
